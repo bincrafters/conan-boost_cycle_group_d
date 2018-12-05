@@ -13,8 +13,8 @@ class BoostCycleGroupDConan(base.BoostBaseConan):
         "bimap",
         "disjoint_sets",
         "graph",
-        "graph_parallel",
-        "mpi",
+        # "graph_parallel",
+        # "mpi",
         "property_map"
     ]
     header_only_libs = [
@@ -55,7 +55,6 @@ class BoostCycleGroupDConan(base.BoostBaseConan):
         "boost_parameter",
         "boost_preprocessor",
         "boost_property_tree",
-        "boost_python",
         "boost_random",
         "boost_range",
         "boost_serialization",
@@ -74,13 +73,17 @@ class BoostCycleGroupDConan(base.BoostBaseConan):
         "boost_xpressive"
     ]
 
-    def build_requirements_additional(self):
-        if not tools.os_info.is_windows:
-            self.build_requires("openmpi/3.0.0@bincrafters/stable")
+    # def build_requirements_additional(self):
+    #     if not tools.os_info.is_windows:
+    #         self.build_requires("openmpi/3.0.0@bincrafters/stable")
 
     def requirements_additional(self):
         if self.options.with_boost_python:
-            self.requires("boost_python/1.67.0@bincrafters/stable")
+            self.requires("boost_python/{ver}@{user}/{channel}".format(
+                    ver=self.version,
+                    user=self.user,
+                    channel=self.channel,
+            ))
 
     def package_info_additional(self):
         self.info.options["boost_python"].python_version = "any"
