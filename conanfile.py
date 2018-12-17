@@ -4,7 +4,7 @@
 from conans import python_requires, tools
 
 
-base = python_requires("boost_base/1.68.0@bincrafters/testing")
+base = python_requires("boost_base/1.69.0@bincrafters/testing")
 
 class BoostCycleGroupDConan(base.BoostBaseConan):
     name = "boost_cycle_group_d" # Level 17
@@ -57,6 +57,7 @@ class BoostCycleGroupDConan(base.BoostBaseConan):
         "boost_property_tree",
         "boost_random",
         "boost_range",
+        "boost_regex",
         "boost_serialization",
         "boost_smart_ptr",
         "boost_spirit",
