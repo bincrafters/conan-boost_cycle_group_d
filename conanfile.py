@@ -8,6 +8,7 @@ base = python_requires("boost_base/1.69.0@bincrafters/stable")
 
 class BoostCycleGroupDConan(base.BoostBaseConan):
     name = "boost_cycle_group_d" # Level 17
+    version = "1.69.0"
     url = "https://github.com/bincrafters/conan-boost_cycle_group_d"
     lib_short_names = [
         "bimap",
