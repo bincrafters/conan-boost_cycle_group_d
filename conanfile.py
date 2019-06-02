@@ -4,88 +4,9 @@
 from conans import python_requires, tools
 
 
-base = python_requires("boost_base/1.69.0@bincrafters/testing")
+base = python_requires("boost_base/2.0.0@bincrafters/testing")
+
 
 class BoostCycleGroupDConan(base.BoostBaseConan):
-    name = "boost_cycle_group_d" # Level 17
-    version = "1.69.0"
-    url = "https://github.com/bincrafters/conan-boost_cycle_group_d"
-    lib_short_names = [
-        "bimap",
-        "disjoint_sets",
-        "graph",
-        # "graph_parallel",
-        # "mpi",
-        "property_map"
-    ]
-    header_only_libs = [
-        "bimap",
-        "disjoint_sets",
-        "property_map"
-    ]
-    options = {
-        "shared": [True, False],
-        "with_boost_python": [True, False]
-    }
-    default_options = "shared=False", "with_boost_python=False"
-    b2_requires = [
-        "boost_algorithm",
-        "boost_any",
-        "boost_array",
-        "boost_assert",
-        "boost_bind",
-        "boost_concept_check",
-        "boost_config",
-        "boost_container_hash",
-        "boost_conversion",
-        "boost_core",
-        "boost_detail",
-        "boost_dynamic_bitset",
-        "boost_filesystem",
-        "boost_foreach",
-        "boost_function",
-        "boost_integer",
-        "boost_iterator",
-        "boost_lambda",
-        "boost_lexical_cast",
-        "boost_math",
-        "boost_move",
-        "boost_mpl",
-        "boost_multi_index",
-        "boost_optional",
-        "boost_parameter",
-        "boost_preprocessor",
-        "boost_property_tree",
-        "boost_random",
-        "boost_range",
-        "boost_regex",
-        "boost_serialization",
-        "boost_smart_ptr",
-        "boost_spirit",
-        "boost_static_assert",
-        "boost_test",
-        "boost_throw_exception",
-        "boost_tti",
-        "boost_tuple",
-        "boost_type_traits",
-        "boost_typeof",
-        "boost_unordered",
-        "boost_utility",
-        "boost_variant",
-        "boost_xpressive"
-    ]
-
-    # def build_requirements_additional(self):
-    #     if not tools.os_info.is_windows:
-    #         self.build_requires("openmpi/3.0.0@bincrafters/stable")
-
-    def requirements_additional(self):
-        if self.options.with_boost_python:
-            self.requires("boost_python/{ver}@{user}/{channel}".format(
-                    ver=self.version,
-                    user=self.user,
-                    channel=self.channel,
-            ))
-
-    def package_info_additional(self):
-        self.info.options["boost_python"].python_version = "any"
+    name = "boost_cycle_group_d"
+    version = "1.70.0"
